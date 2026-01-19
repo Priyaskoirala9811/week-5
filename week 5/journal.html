@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Journal • Learning Journal</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <!-- Header is filled in from JS -->
+  <header id="site-header" class="site-header"></header>
+
+  <main class="container">
+    <h1>My Learning Journal</h1>
+
+    <!-- Area for writing a new entry -->
+    <section class="card">
+      <h2>New Entry</h2>
+
+      <label for="tagSelect">Tag this entry (which week?):</label>
+      <select id="tagSelect">
+        <option value="Week 1">Week 1</option>
+        <option value="Week 2">Week 2</option>
+        <option value="Week 3">Week 3</option>
+        <option value="Week 4">Week 4</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <textarea id="journalEntry" rows="4"
+        placeholder="Write about what you learned this week..."></textarea>
+
+      <p id="entryCounter">0 words</p>
+
+      <div class="btn-row">
+        <button type="button" class="btn primary" onclick="saveEntry()">Save Entry</button>
+        <button type="button" class="btn" onclick="copyLastEntry()">Copy Last Entry</button>
+      </div>
+      <p id="saveStatus" class="status-text"></p>
+    </section>
+
+    <!-- List of saved entries + filter -->
+    <section class="card">
+      <h2>Previous Entries</h2>
+
+      <label for="filterSelect">Filter by tag:</label>
+      <select id="filterSelect" onchange="filterEntries()">
+        <option value="all">All</option>
+        <option value="Week 1">Week 1</option>
+        <option value="Week 2">Week 2</option>
+        <option value="Week 3">Week 3</option>
+        <option value="Week 4">Week 4</option>
+        <option value="Other">Other</option>
+      </select>
+
+      <ul id="entriesList" class="entries-list"></ul>
+    </section>
+
+    <!-- Third-party API section -->
+    <section class="card">
+      <h2>Random Learning Quote</h2>
+      <button type="button" class="btn" onclick="getQuote()">Get a Quote</button>
+      <p id="quoteText" class="quote-text"></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Priyash Koirala — FGCT6021 Mobile Application Development</p>
+  </footer>
+
+  <!-- JavaScript files -->
+  <script src="js/script.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/browser.js" defer></script>
+  <script src="js/thirdparty.js" defer></script>
+</body>
+</html>
